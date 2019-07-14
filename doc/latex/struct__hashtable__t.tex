@@ -1,0 +1,97 @@
+\hypertarget{struct__hashtable__t}{}\section{\+\_\+hashtable\+\_\+t Struct Reference}
+\label{struct__hashtable__t}\index{\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}}
+
+
+hashtables maintain bookkeeping information about the hash functions, key comparators and deallocators the user supplied to manage user supplied keys and values.  
+
+
+
+
+{\ttfamily \#include $<$hashtable.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int($\ast$ \hyperlink{struct__hashtable__t_aa837007e529fa6837bca0cab2d31340a}{hash\+\_\+function} )(void $\ast$)
+\begin{DoxyCompactList}\small\item\em function used to hash keys. \end{DoxyCompactList}\item 
+int($\ast$ \hyperlink{struct__hashtable__t_abb515b666a0adc3ebed1f815af2ac367}{key\+\_\+comparator} )(void $\ast$, void $\ast$)
+\begin{DoxyCompactList}\small\item\em function used to compare keys. \end{DoxyCompactList}\item 
+void $\ast$($\ast$ \hyperlink{struct__hashtable__t_ac6760550899baf2bf96ab0c72bb49029}{allocator} )(size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em function used to make allocations \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{struct__hashtable__t_ab4b20ea8ea22a5c4ba1b8302cc1dfbf1}{deallocator} )(void $\ast$)
+\begin{DoxyCompactList}\small\item\em function used to deallocate memory \end{DoxyCompactList}\item 
+\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$$\ast$ \hyperlink{struct__hashtable__t_a56b35ee01c14fd9e50595decd7077614}{lists}
+\begin{DoxyCompactList}\small\item\em an array of lists that implement the \end{DoxyCompactList}\item 
+unsigned int \hyperlink{struct__hashtable__t_a84bd70632a7cb9d77aaa0f9d4ce10adc}{num\+\_\+slots}
+\begin{DoxyCompactList}\small\item\em the number of slots for this hashtable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+hashtables maintain bookkeeping information about the hash functions, key comparators and deallocators the user supplied to manage user supplied keys and values. 
+
+\subsection{Member Data Documentation}
+\hypertarget{struct__hashtable__t_ac6760550899baf2bf96ab0c72bb49029}{}\label{struct__hashtable__t_ac6760550899baf2bf96ab0c72bb49029} 
+\index{\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}!allocator@{allocator}}
+\index{allocator@{allocator}!\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}}
+\subsubsection{\texorpdfstring{allocator}{allocator}}
+{\footnotesize\ttfamily void$\ast$($\ast$ \+\_\+hashtable\+\_\+t\+::allocator) (size\+\_\+t)}
+
+
+
+function used to make allocations 
+
+\hypertarget{struct__hashtable__t_ab4b20ea8ea22a5c4ba1b8302cc1dfbf1}{}\label{struct__hashtable__t_ab4b20ea8ea22a5c4ba1b8302cc1dfbf1} 
+\index{\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}!deallocator@{deallocator}}
+\index{deallocator@{deallocator}!\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}}
+\subsubsection{\texorpdfstring{deallocator}{deallocator}}
+{\footnotesize\ttfamily void($\ast$ \+\_\+hashtable\+\_\+t\+::deallocator) (void $\ast$)}
+
+
+
+function used to deallocate memory 
+
+\hypertarget{struct__hashtable__t_aa837007e529fa6837bca0cab2d31340a}{}\label{struct__hashtable__t_aa837007e529fa6837bca0cab2d31340a} 
+\index{\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}!hash\+\_\+function@{hash\+\_\+function}}
+\index{hash\+\_\+function@{hash\+\_\+function}!\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}}
+\subsubsection{\texorpdfstring{hash\+\_\+function}{hash\_function}}
+{\footnotesize\ttfamily unsigned int($\ast$ \+\_\+hashtable\+\_\+t\+::hash\+\_\+function) (void $\ast$)}
+
+
+
+function used to hash keys. 
+
+\hypertarget{struct__hashtable__t_abb515b666a0adc3ebed1f815af2ac367}{}\label{struct__hashtable__t_abb515b666a0adc3ebed1f815af2ac367} 
+\index{\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}!key\+\_\+comparator@{key\+\_\+comparator}}
+\index{key\+\_\+comparator@{key\+\_\+comparator}!\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}}
+\subsubsection{\texorpdfstring{key\+\_\+comparator}{key\_comparator}}
+{\footnotesize\ttfamily int($\ast$ \+\_\+hashtable\+\_\+t\+::key\+\_\+comparator) (void $\ast$, void $\ast$)}
+
+
+
+function used to compare keys. 
+
+\hypertarget{struct__hashtable__t_a56b35ee01c14fd9e50595decd7077614}{}\label{struct__hashtable__t_a56b35ee01c14fd9e50595decd7077614} 
+\index{\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}!lists@{lists}}
+\index{lists@{lists}!\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}}
+\subsubsection{\texorpdfstring{lists}{lists}}
+{\footnotesize\ttfamily \hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t}$\ast$$\ast$ \+\_\+hashtable\+\_\+t\+::lists}
+
+
+
+an array of lists that implement the 
+
+\hypertarget{struct__hashtable__t_a84bd70632a7cb9d77aaa0f9d4ce10adc}{}\label{struct__hashtable__t_a84bd70632a7cb9d77aaa0f9d4ce10adc} 
+\index{\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}!num\+\_\+slots@{num\+\_\+slots}}
+\index{num\+\_\+slots@{num\+\_\+slots}!\+\_\+hashtable\+\_\+t@{\+\_\+hashtable\+\_\+t}}
+\subsubsection{\texorpdfstring{num\+\_\+slots}{num\_slots}}
+{\footnotesize\ttfamily unsigned int \+\_\+hashtable\+\_\+t\+::num\+\_\+slots}
+
+
+
+the number of slots for this hashtable. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{hashtable_8h}{hashtable.\+h}\end{DoxyCompactItemize}

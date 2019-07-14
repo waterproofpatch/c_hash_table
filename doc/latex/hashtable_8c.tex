@@ -1,0 +1,131 @@
+\hypertarget{hashtable_8c}{}\section{src/hashtable.c File Reference}
+\label{hashtable_8c}\index{src/hashtable.\+c@{src/hashtable.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}hashtable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}list.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hashtable_8h_a0b1d01354e3d51d322f1959f837bcb56}{hashtable\+\_\+t} $\ast$ \hyperlink{hashtable_8c_af046655ae6359c0b75e79f0db5c11adb}{hashtable\+\_\+init} (unsigned int num\+\_\+slots, unsigned int($\ast$\hyperlink{main_8c_a8a852f820c5fabcf37ea9fa1ed09a451}{hash\+\_\+function})(void $\ast$), int($\ast$\hyperlink{main_8c_ad7dd116c0bc11ab8fc6407d3ad49c147}{key\+\_\+comparator})(void $\ast$, void $\ast$), void $\ast$($\ast$allocator)(size\+\_\+t), void($\ast$deallocator)(void $\ast$))
+\begin{DoxyCompactList}\small\item\em creates a hashtable based on user supplied values to hash values and compare keys. \end{DoxyCompactList}\item 
+int \hyperlink{hashtable_8c_add8bf59f57f7ba70657ace2d86b7814a}{hashtable\+\_\+add} (\hyperlink{hashtable_8h_a0b1d01354e3d51d322f1959f837bcb56}{hashtable\+\_\+t} $\ast$hashtable, void $\ast$key, void $\ast$value)
+\begin{DoxyCompactList}\small\item\em adds a key/value pair to the hashtable, if not present \end{DoxyCompactList}\item 
+int \hyperlink{hashtable_8c_afa2f2ea6dbadc1689c35aac67d5298c6}{hashtable\+\_\+remove} (\hyperlink{hashtable_8h_a0b1d01354e3d51d322f1959f837bcb56}{hashtable\+\_\+t} $\ast$hashtable, void $\ast$key)
+\begin{DoxyCompactList}\small\item\em removes an entry from the hashtable, if present. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{hashtable_8c_a99c11fbd6ad201c4a20abcea9b10f683}{hashtable\+\_\+get} (\hyperlink{hashtable_8h_a0b1d01354e3d51d322f1959f837bcb56}{hashtable\+\_\+t} $\ast$hashtable, void $\ast$key)
+\begin{DoxyCompactList}\small\item\em gets a reference to the data element in the hashtable. \end{DoxyCompactList}\item 
+int \hyperlink{hashtable_8c_a3d390f00a09db4b4c31f05ff84904d2e}{hashtable\+\_\+destroy} (\hyperlink{hashtable_8h_a0b1d01354e3d51d322f1959f837bcb56}{hashtable\+\_\+t} $\ast$hashtable)
+\begin{DoxyCompactList}\small\item\em destroys the hashtable, freeing all resources it allocated including kv\+\_\+pairs, and invokes the user supplied deallocators for key and values in the table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{hashtable_8c_add8bf59f57f7ba70657ace2d86b7814a}{}\label{hashtable_8c_add8bf59f57f7ba70657ace2d86b7814a} 
+\index{hashtable.\+c@{hashtable.\+c}!hashtable\+\_\+add@{hashtable\+\_\+add}}
+\index{hashtable\+\_\+add@{hashtable\+\_\+add}!hashtable.\+c@{hashtable.\+c}}
+\subsubsection{\texorpdfstring{hashtable\+\_\+add()}{hashtable\_add()}}
+{\footnotesize\ttfamily int hashtable\+\_\+add (\begin{DoxyParamCaption}\item[{\hyperlink{hashtable_8h_a0b1d01354e3d51d322f1959f837bcb56}{hashtable\+\_\+t} $\ast$}]{hashtable,  }\item[{void $\ast$}]{key,  }\item[{void $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+adds a key/value pair to the hashtable, if not present 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hashtable} & the hashtable to which the value should be added \\
+\hline
+{\em key} & the key for this data element. \\
+\hline
+{\em value} & the value (the data itself). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1\+: success; value for key added 2\+: no change, key was already present 0\+: failure 
+\end{DoxyReturn}
+\hypertarget{hashtable_8c_a3d390f00a09db4b4c31f05ff84904d2e}{}\label{hashtable_8c_a3d390f00a09db4b4c31f05ff84904d2e} 
+\index{hashtable.\+c@{hashtable.\+c}!hashtable\+\_\+destroy@{hashtable\+\_\+destroy}}
+\index{hashtable\+\_\+destroy@{hashtable\+\_\+destroy}!hashtable.\+c@{hashtable.\+c}}
+\subsubsection{\texorpdfstring{hashtable\+\_\+destroy()}{hashtable\_destroy()}}
+{\footnotesize\ttfamily int hashtable\+\_\+destroy (\begin{DoxyParamCaption}\item[{\hyperlink{hashtable_8h_a0b1d01354e3d51d322f1959f837bcb56}{hashtable\+\_\+t} $\ast$}]{hashtable }\end{DoxyParamCaption})}
+
+
+
+destroys the hashtable, freeing all resources it allocated including kv\+\_\+pairs, and invokes the user supplied deallocators for key and values in the table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hashtable} & the hashtable to destroy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1\+: on success 0\+: failure 
+\end{DoxyReturn}
+\hypertarget{hashtable_8c_a99c11fbd6ad201c4a20abcea9b10f683}{}\label{hashtable_8c_a99c11fbd6ad201c4a20abcea9b10f683} 
+\index{hashtable.\+c@{hashtable.\+c}!hashtable\+\_\+get@{hashtable\+\_\+get}}
+\index{hashtable\+\_\+get@{hashtable\+\_\+get}!hashtable.\+c@{hashtable.\+c}}
+\subsubsection{\texorpdfstring{hashtable\+\_\+get()}{hashtable\_get()}}
+{\footnotesize\ttfamily void$\ast$ hashtable\+\_\+get (\begin{DoxyParamCaption}\item[{\hyperlink{hashtable_8h_a0b1d01354e3d51d322f1959f837bcb56}{hashtable\+\_\+t} $\ast$}]{hashtable,  }\item[{void $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+gets a reference to the data element in the hashtable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hashtable} & the hashtable containing the data element. \\
+\hline
+{\em key} & the key indentifying the element to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void$\ast$ value\+: the data, if present in the table, or N\+U\+LL otherwise. 
+\end{DoxyReturn}
+\hypertarget{hashtable_8c_af046655ae6359c0b75e79f0db5c11adb}{}\label{hashtable_8c_af046655ae6359c0b75e79f0db5c11adb} 
+\index{hashtable.\+c@{hashtable.\+c}!hashtable\+\_\+init@{hashtable\+\_\+init}}
+\index{hashtable\+\_\+init@{hashtable\+\_\+init}!hashtable.\+c@{hashtable.\+c}}
+\subsubsection{\texorpdfstring{hashtable\+\_\+init()}{hashtable\_init()}}
+{\footnotesize\ttfamily \hyperlink{hashtable_8h_a0b1d01354e3d51d322f1959f837bcb56}{hashtable\+\_\+t}$\ast$ hashtable\+\_\+init (\begin{DoxyParamCaption}\item[{unsigned int}]{num\+\_\+slots,  }\item[{unsigned int($\ast$)(void $\ast$)}]{hash\+\_\+function,  }\item[{int($\ast$)(void $\ast$, void $\ast$)}]{key\+\_\+comparator,  }\item[{void $\ast$($\ast$)(size\+\_\+t)}]{allocator,  }\item[{void($\ast$)(void $\ast$)}]{deallocator }\end{DoxyParamCaption})}
+
+
+
+creates a hashtable based on user supplied values to hash values and compare keys. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+slots} & the number of initial lists to use for storing values. Must be greater than 0, or N\+U\+LL will be returned \\
+\hline
+{\em hash\+\_\+function} & the function to use to hash keys supplied on \textquotesingle{}put\textquotesingle{} and \textquotesingle{}get\textquotesingle{} ops \\
+\hline
+{\em key\+\_\+comparator} & the function to call to compare keys for equality \\
+\hline
+{\em allocator} & the user supplied function to make allocaitons \\
+\hline
+{\em deallocator} & the user supplied function to deallocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hashtable\+\_\+t$\ast$\+: hashtable object to used for rest of A\+PI 
+
+N\+U\+LL\+: no memory available 
+\end{DoxyReturn}
+\hypertarget{hashtable_8c_afa2f2ea6dbadc1689c35aac67d5298c6}{}\label{hashtable_8c_afa2f2ea6dbadc1689c35aac67d5298c6} 
+\index{hashtable.\+c@{hashtable.\+c}!hashtable\+\_\+remove@{hashtable\+\_\+remove}}
+\index{hashtable\+\_\+remove@{hashtable\+\_\+remove}!hashtable.\+c@{hashtable.\+c}}
+\subsubsection{\texorpdfstring{hashtable\+\_\+remove()}{hashtable\_remove()}}
+{\footnotesize\ttfamily int hashtable\+\_\+remove (\begin{DoxyParamCaption}\item[{\hyperlink{hashtable_8h_a0b1d01354e3d51d322f1959f837bcb56}{hashtable\+\_\+t} $\ast$}]{hashtable,  }\item[{void $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+removes an entry from the hashtable, if present. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hashtable} & the hashtable from which the element should be removed. \\
+\hline
+{\em key} & the key identifying the element to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1\+: if the element was successfully removed. 0\+: if the element was not found. 
+\end{DoxyReturn}

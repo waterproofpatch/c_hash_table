@@ -1,0 +1,183 @@
+\hypertarget{list_8c}{}\section{src/list.c File Reference}
+\label{list_8c}\index{src/list.\+c@{src/list.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}list.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$ \hyperlink{list_8c_afba95b59f13a54f2a88d2874ed42f60e}{list\+\_\+init} (void $\ast$($\ast$list\+\_\+malloc)(size\+\_\+t), void($\ast$list\+\_\+free)(void $\ast$))
+\begin{DoxyCompactList}\small\item\em create a list object \end{DoxyCompactList}\item 
+void \hyperlink{list_8c_af04149a6092f6c1960ffe1556fa0e612}{list\+\_\+destroy} (\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$list)
+\begin{DoxyCompactList}\small\item\em destroy a list. Also calls \textquotesingle{}list\+\_\+free\textquotesingle{} on all elements added via \textquotesingle{}list\+\_\+add\textquotesingle{}. \end{DoxyCompactList}\item 
+int \hyperlink{list_8c_ac0b4f3e41b2bb9ad24f62a09d312a3c4}{list\+\_\+add} (\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$list, void $\ast$element)
+\begin{DoxyCompactList}\small\item\em add an element to the list (shallow copy) \end{DoxyCompactList}\item 
+int \hyperlink{list_8c_a6aafbf60b3dd07229772a0c8e5d60181}{list\+\_\+remove} (\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$list, void $\ast$element)
+\begin{DoxyCompactList}\small\item\em removal based on linux torvold\textquotesingle{}s linked list impl. Does N\+OT call \textquotesingle{}list\+\_\+free\textquotesingle{} on elements. elements \end{DoxyCompactList}\item 
+void \hyperlink{list_8c_a8af1cfa02357d93fb64e626a61d2aa1c}{list\+\_\+foreach} (\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$list, void($\ast$process\+\_\+func)(void $\ast$, void $\ast$), void $\ast$context)
+\begin{DoxyCompactList}\small\item\em invoke a function on each element in the list \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{list_8c_a454ec27d8eb3c4fea515992c633267a2}{list\+\_\+get\+\_\+at\+\_\+index} (\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$list, unsigned int index)
+\begin{DoxyCompactList}\small\item\em get an element at index \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{list_8c_a03c91f824871cfc3b22b00c5e62df61f}{list\+\_\+search} (\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$list, char($\ast$\hyperlink{main_8c_ad7dd116c0bc11ab8fc6407d3ad49c147}{key\+\_\+comparator})(void $\ast$, void $\ast$), void $\ast$key)
+\begin{DoxyCompactList}\small\item\em searches the supplied list for an element with a key matching a supplied key. key\+\_\+comparators should return 1 on a match, 0 otherwise. This function returns the first element that caused key\+\_\+comparator to return 1. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{list_8c_a07c1a4bca306627b144f2c3463d776fa}{list\+\_\+count} (\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$list)
+\begin{DoxyCompactList}\small\item\em get the count of the list \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{list_8c_ac0b4f3e41b2bb9ad24f62a09d312a3c4}{}\label{list_8c_ac0b4f3e41b2bb9ad24f62a09d312a3c4} 
+\index{list.\+c@{list.\+c}!list\+\_\+add@{list\+\_\+add}}
+\index{list\+\_\+add@{list\+\_\+add}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{list\+\_\+add()}{list\_add()}}
+{\footnotesize\ttfamily int list\+\_\+add (\begin{DoxyParamCaption}\item[{\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$}]{list,  }\item[{void $\ast$}]{element }\end{DoxyParamCaption})}
+
+
+
+add an element to the list (shallow copy) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list to add to \\
+\hline
+{\em element} & the element to add to the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: 1 if adding element was successful, 0 otherwise 
+\end{DoxyReturn}
+\hypertarget{list_8c_a07c1a4bca306627b144f2c3463d776fa}{}\label{list_8c_a07c1a4bca306627b144f2c3463d776fa} 
+\index{list.\+c@{list.\+c}!list\+\_\+count@{list\+\_\+count}}
+\index{list\+\_\+count@{list\+\_\+count}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{list\+\_\+count()}{list\_count()}}
+{\footnotesize\ttfamily size\+\_\+t list\+\_\+count (\begin{DoxyParamCaption}\item[{\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+get the count of the list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list to get the count of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: the size of the list 
+\end{DoxyReturn}
+\hypertarget{list_8c_af04149a6092f6c1960ffe1556fa0e612}{}\label{list_8c_af04149a6092f6c1960ffe1556fa0e612} 
+\index{list.\+c@{list.\+c}!list\+\_\+destroy@{list\+\_\+destroy}}
+\index{list\+\_\+destroy@{list\+\_\+destroy}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{list\+\_\+destroy()}{list\_destroy()}}
+{\footnotesize\ttfamily void list\+\_\+destroy (\begin{DoxyParamCaption}\item[{\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$}]{list }\end{DoxyParamCaption})}
+
+
+
+destroy a list. Also calls \textquotesingle{}list\+\_\+free\textquotesingle{} on all elements added via \textquotesingle{}list\+\_\+add\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list to destroy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: void 
+\end{DoxyReturn}
+\hypertarget{list_8c_a8af1cfa02357d93fb64e626a61d2aa1c}{}\label{list_8c_a8af1cfa02357d93fb64e626a61d2aa1c} 
+\index{list.\+c@{list.\+c}!list\+\_\+foreach@{list\+\_\+foreach}}
+\index{list\+\_\+foreach@{list\+\_\+foreach}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{list\+\_\+foreach()}{list\_foreach()}}
+{\footnotesize\ttfamily void list\+\_\+foreach (\begin{DoxyParamCaption}\item[{\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$}]{list,  }\item[{void($\ast$)(void $\ast$, void $\ast$)}]{process\+\_\+func,  }\item[{void $\ast$}]{context }\end{DoxyParamCaption})}
+
+
+
+invoke a function on each element in the list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list to process \\
+\hline
+{\em process\+\_\+func} & the function to invoke on each element of the list \\
+\hline
+{\em context} & an opaquie context object to pass to the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: void 
+\end{DoxyReturn}
+\hypertarget{list_8c_a454ec27d8eb3c4fea515992c633267a2}{}\label{list_8c_a454ec27d8eb3c4fea515992c633267a2} 
+\index{list.\+c@{list.\+c}!list\+\_\+get\+\_\+at\+\_\+index@{list\+\_\+get\+\_\+at\+\_\+index}}
+\index{list\+\_\+get\+\_\+at\+\_\+index@{list\+\_\+get\+\_\+at\+\_\+index}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{list\+\_\+get\+\_\+at\+\_\+index()}{list\_get\_at\_index()}}
+{\footnotesize\ttfamily void$\ast$ list\+\_\+get\+\_\+at\+\_\+index (\begin{DoxyParamCaption}\item[{\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$}]{list,  }\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+
+
+get an element at index 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list to search \\
+\hline
+{\em index} & the index into the list to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ptr to element in list at index \textquotesingle{}index\textquotesingle{}, N\+U\+LL if no data found at index 
+\end{DoxyReturn}
+\hypertarget{list_8c_afba95b59f13a54f2a88d2874ed42f60e}{}\label{list_8c_afba95b59f13a54f2a88d2874ed42f60e} 
+\index{list.\+c@{list.\+c}!list\+\_\+init@{list\+\_\+init}}
+\index{list\+\_\+init@{list\+\_\+init}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{list\+\_\+init()}{list\_init()}}
+{\footnotesize\ttfamily \hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t}$\ast$ list\+\_\+init (\begin{DoxyParamCaption}\item[{void $\ast$($\ast$)(size\+\_\+t)}]{list\+\_\+malloc,  }\item[{void($\ast$)(void $\ast$)}]{list\+\_\+free }\end{DoxyParamCaption})}
+
+
+
+create a list object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+\_\+malloc} & the allocator to use for creating list nodes \\
+\hline
+{\em list\+\_\+free} & the free function to use for desrtoying list nodes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a ptr to a list\+\_\+t object 
+\end{DoxyReturn}
+\hypertarget{list_8c_a6aafbf60b3dd07229772a0c8e5d60181}{}\label{list_8c_a6aafbf60b3dd07229772a0c8e5d60181} 
+\index{list.\+c@{list.\+c}!list\+\_\+remove@{list\+\_\+remove}}
+\index{list\+\_\+remove@{list\+\_\+remove}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{list\+\_\+remove()}{list\_remove()}}
+{\footnotesize\ttfamily int list\+\_\+remove (\begin{DoxyParamCaption}\item[{\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$}]{list,  }\item[{void $\ast$}]{element }\end{DoxyParamCaption})}
+
+
+
+removal based on linux torvold\textquotesingle{}s linked list impl. Does N\+OT call \textquotesingle{}list\+\_\+free\textquotesingle{} on elements. elements 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list from which removal should occur \\
+\hline
+{\em element} & the element to remove from the list \\
+\hline
+\end{DoxyParams}
+\hypertarget{list_8c_a03c91f824871cfc3b22b00c5e62df61f}{}\label{list_8c_a03c91f824871cfc3b22b00c5e62df61f} 
+\index{list.\+c@{list.\+c}!list\+\_\+search@{list\+\_\+search}}
+\index{list\+\_\+search@{list\+\_\+search}!list.\+c@{list.\+c}}
+\subsubsection{\texorpdfstring{list\+\_\+search()}{list\_search()}}
+{\footnotesize\ttfamily void$\ast$ list\+\_\+search (\begin{DoxyParamCaption}\item[{\hyperlink{list_8h_a0827dd560c5b281863fea20f22abeff6}{list\+\_\+t} $\ast$}]{list,  }\item[{char($\ast$)(void $\ast$, void $\ast$)}]{key\+\_\+comparator,  }\item[{void $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+searches the supplied list for an element with a key matching a supplied key. key\+\_\+comparators should return 1 on a match, 0 otherwise. This function returns the first element that caused key\+\_\+comparator to return 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list to search \\
+\hline
+{\em key\+\_\+comparator} & the supplied comparator function \\
+\hline
+{\em key} & the key to pass along with the element to the key\+\_\+comparator function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: a ptr to the matching element if any found, N\+U\+LL otherwise 
+\end{DoxyReturn}

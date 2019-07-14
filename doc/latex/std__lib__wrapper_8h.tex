@@ -1,0 +1,45 @@
+\hypertarget{std__lib__wrapper_8h}{}\section{src/std\+\_\+lib\+\_\+wrapper.h File Reference}
+\label{std__lib__wrapper_8h}\index{src/std\+\_\+lib\+\_\+wrapper.\+h@{src/std\+\_\+lib\+\_\+wrapper.\+h}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{std__lib__wrapper_8h_aaadd708c812cbe725c0f144f66a3c92f}{wrap\+\_\+malloc} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em wrapper for free \end{DoxyCompactList}\item 
+void \hyperlink{std__lib__wrapper_8h_a24c3d5387ca10abd8c24a4e050f060bf}{wrap\+\_\+free} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em wrapper for free \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{std__lib__wrapper_8h_a24c3d5387ca10abd8c24a4e050f060bf}{}\label{std__lib__wrapper_8h_a24c3d5387ca10abd8c24a4e050f060bf} 
+\index{std\+\_\+lib\+\_\+wrapper.\+h@{std\+\_\+lib\+\_\+wrapper.\+h}!wrap\+\_\+free@{wrap\+\_\+free}}
+\index{wrap\+\_\+free@{wrap\+\_\+free}!std\+\_\+lib\+\_\+wrapper.\+h@{std\+\_\+lib\+\_\+wrapper.\+h}}
+\subsubsection{\texorpdfstring{wrap\+\_\+free()}{wrap\_free()}}
+{\footnotesize\ttfamily void wrap\+\_\+free (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+wrapper for free 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & the ptr returned from wrap\+\_\+malloc \\
+\hline
+\end{DoxyParams}
+\hypertarget{std__lib__wrapper_8h_aaadd708c812cbe725c0f144f66a3c92f}{}\label{std__lib__wrapper_8h_aaadd708c812cbe725c0f144f66a3c92f} 
+\index{std\+\_\+lib\+\_\+wrapper.\+h@{std\+\_\+lib\+\_\+wrapper.\+h}!wrap\+\_\+malloc@{wrap\+\_\+malloc}}
+\index{wrap\+\_\+malloc@{wrap\+\_\+malloc}!std\+\_\+lib\+\_\+wrapper.\+h@{std\+\_\+lib\+\_\+wrapper.\+h}}
+\subsubsection{\texorpdfstring{wrap\+\_\+malloc()}{wrap\_malloc()}}
+{\footnotesize\ttfamily void$\ast$ wrap\+\_\+malloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+wrapper for free 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & number of bytes to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: ptr to allocated memory 
+\end{DoxyReturn}
